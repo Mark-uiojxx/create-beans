@@ -39,7 +39,7 @@ public class CreateBeans implements Serializable {
                     "select column_name,data_type,COLUMN_COMMENT from information_schema.columns where table_schema = 'testdb' and table_name='" + tableName + "'",
                     new MapListHandler());
             //类名
-            String fileName = MyCamelUnderUtils.toCamelCase(tableName).substring(2);
+            String fileName = MyCamelUnderUtils.toCamelCase(tableName).substring(tableName.indexOf("_"));
             //包
             String packageName = "com.test.beans." + tableName.split("_")[1] + ".dbmodel;";
             //当前时间
